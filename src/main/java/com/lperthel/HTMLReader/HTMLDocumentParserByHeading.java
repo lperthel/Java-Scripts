@@ -20,8 +20,9 @@ import org.jsoup.select.Elements;
 
 public class HTMLDocumentParserByHeading {
     private static String OUTPUT_DIRECTORY = "C:\\Users\\lpert\\OneDrive\\Documents\\ITCareer\\Hibernate Reference Documents\\User Guide";
-    private static String HTML_URL = "https://docs.jboss.org/hibernate/orm/6.2/userguide/html_single/Hibernate_User_Guide.html";
-    private static String HEADING_TAG = "h3";
+    private static String HTML_URL = "https://eclipse-ee4j.github.io/jakartaee-tutorial/";
+//    private static String HTML_URL = "https://docs.jboss.org/hibernate/orm/6.2/userguide/html_single/Hibernate_User_Guide.html";
+    private static String HEADING_TAG = "h2";
 
     public static void main(String[] args) {
         final Path outputDir = Paths.get(OUTPUT_DIRECTORY);
