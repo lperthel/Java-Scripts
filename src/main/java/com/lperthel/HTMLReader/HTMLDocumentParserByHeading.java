@@ -19,14 +19,32 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class HTMLDocumentParserByHeading {
-    private static String OUTPUT_DIRECTORY = "C:\\Users\\lpert\\OneDrive\\Documents\\ITCareer\\Hibernate Reference Documents\\User Guide";
-    private static String HTML_URL = "https://eclipse-ee4j.github.io/jakartaee-tutorial/";
-//    private static String HTML_URL = "https://docs.jboss.org/hibernate/orm/6.2/userguide/html_single/Hibernate_User_Guide.html";
-    private static String HEADING_TAG = "h2";
+    private static final int FONT_SIZE = 25;
+	private static String OUTPUT_DIRECTORY = "C:\\Users\\lpert\\OneDrive\\Documents\\ITCareer\\Hibernate Reference Documents\\User Guide";
+    private static String HTML_URL = "https://docs.jboss.org/hibernate/orm/6.2/userguide/html_single/Hibernate_User_Guide.html";
+    private static String HEADING_TAG = "h3";
 
     public static void main(String[] args) {
-        final Path outputDir = Paths.get(OUTPUT_DIRECTORY);
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Please select an option:");
+        System.out.println("1. Use Hibernate page");
+        System.out.println("2. Use Jakarta EE Webpage");
+
+        int option = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
+
+        if(option ==1) {
+        	OUTPUT_DIRECTORY = "C:\\Users\\lpert\\OneDrive\\Documents\\ITCareer\\Hibernate Reference Documents\\User Guide";
+            HTML_URL = "https://docs.jboss.org/hibernate/orm/6.2/userguide/html_single/Hibernate_User_Guide.html";
+        }
+        if (option == 2) {
+        	OUTPUT_DIRECTORY = "C:\\Users\\lpert\\OneDrive\\Documents\\ITCareer\\Jakarta EE\\User Guide";
+HTML_URL = "https://eclipse-ee4j.github.io/jakartaee-tutorial/";
+
+        }
+
+        final Path outputDir = Paths.get(OUTPUT_DIRECTORY);
 
         System.out.print("Enter the heading name to extract contents: ");
         String headingName = scanner.nextLine();
@@ -65,7 +83,7 @@ public class HTMLDocumentParserByHeading {
                     para.setAlignment(ParagraphAlignment.LEFT);
 
                     XWPFRun run = para.createRun();
-                    run.setFontSize(30); // Set the font size to 30
+                    run.setFontSize(FONT_SIZE); 
                     run.setText(content);
 
                     Path outputPath = outputDir.resolve(title + ".docx");
