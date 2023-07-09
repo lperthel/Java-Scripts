@@ -19,7 +19,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class HTMLDocumentParserByHeading {
-    private static final int FONT_SIZE = 25;
+    private static final int FONT_SIZE = 25;  
 	private static String OUTPUT_DIRECTORY = "C:\\Users\\lpert\\OneDrive\\Documents\\ITCareer\\Hibernate Reference Documents\\User Guide";
     private static String HTML_URL = "https://docs.jboss.org/hibernate/orm/6.2/userguide/html_single/Hibernate_User_Guide.html";
     private static String HEADING_TAG = "h3";
